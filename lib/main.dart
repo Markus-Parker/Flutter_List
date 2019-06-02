@@ -44,9 +44,25 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.black87,
       ),
       body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  stops: [
+                .1,
+                .5,
+                .7,
+                .9
+              ],
+                  colors: [
+                Colors.indigo[800],
+                Colors.indigo[700],
+                Colors.indigo[600],
+                Colors.indigo[400]
+              ])),
           child: Center(
-        child: DogList(initialDoggos),
-      )),
+            child: DogList(initialDoggos),
+          )),
     );
   }
 }
