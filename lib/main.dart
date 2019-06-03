@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 import 'dog_model.dart';
 import 'dog_list.dart';
@@ -49,20 +50,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+    var key = new GlobalKey<ScaffoldState>();
+    return new Scaffold(
+      key: key,
+      appBar: new AppBar(
+        title: new Text(widget.title),
         backgroundColor: Colors.black87,
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
+          new IconButton(
+            icon: new Icon(Icons.add),
             onPressed: _showNewDogForm,
           ),
         ],
       ),
-      body: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
+      body: new Container(
+          decoration: new BoxDecoration(
+              gradient: new LinearGradient(
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   stops: [
@@ -77,8 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Colors.indigo[600],
                 Colors.indigo[400]
               ])),
-          child: Center(
-            child: DogList(initialDoggos),
+          child: new Center(
+            child: new DogList(initialDoggos),
           )),
     );
   }

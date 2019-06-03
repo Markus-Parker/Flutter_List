@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dog_model.dart';
+import 'dart:async';
 
 class DogDetailPage extends StatefulWidget {
   final Dog dog;
   DogDetailPage(this.dog);
 
   @override
-  _DogDetailPageState createState() => _DogDetailPageState();
+  _DogDetailPageState createState() => new _DogDetailPageState();
 }
 
 class _DogDetailPageState extends State<DogDetailPage> {
@@ -14,16 +15,16 @@ class _DogDetailPageState extends State<DogDetailPage> {
   double _sliderValue = 10.0;
 
   Widget get addYourRating {
-    return Column(
+    return new Column(
       children: <Widget>[
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
-          child: Row(
+        new Container(
+          padding: new EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+          child: new Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Flexible(
+              new Flexible(
                 flex: 1,
-                child: Slider(
+                child: new Slider(
                   activeColor: Colors.indigoAccent,
                   min: 0.0,
                   max: 15.0,
@@ -35,10 +36,10 @@ class _DogDetailPageState extends State<DogDetailPage> {
                   },
                 ),
               ),
-              Container(
+              new Container(
                 width: 50.0,
                 alignment: Alignment.center,
-                child: Text('${_sliderValue.toInt()}',
+                child: new Text('${_sliderValue.toInt()}',
                     style: Theme.of(context).textTheme.display1),
               ),
             ],
@@ -63,12 +64,12 @@ class _DogDetailPageState extends State<DogDetailPage> {
     return showDialog(
         context: context,
         builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Error!'),
-            content: Text("They're good dogs, Brant."),
+          return new AlertDialog(
+            title: new Text('Error!'),
+            content: new Text("They're good dogs, Brant."),
             actions: <Widget>[
-              FlatButton(
-                child: Text('Try Again'),
+              new FlatButton(
+                child: new Text('Try Again'),
                 onPressed: () => Navigator.of(context).pop(),
               )
             ],
@@ -77,59 +78,55 @@ class _DogDetailPageState extends State<DogDetailPage> {
   }
 
   Widget get submitRatingButton {
-    return RaisedButton(
-      onPressed: updateRating,
-      child: Text('Submit'),
+    return new RaisedButton(
+      onPressed: () => updateRating(),
+      child: new Text('Submit'),
       color: Colors.indigoAccent,
     );
   }
 
   Widget get dogImage {
-    var dogAvatar = Container(
-      width: 100.0,
-      height: 100.0,
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(widget.dog.imageUrl ?? ''))),
-    );
-
-    var placeholder = Container(
-      width: 100.0,
-      height: 100.0,
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Colors.black54, Colors.black, Colors.blueGrey[600]])),
-      alignment: Alignment.center,
-      child: Text(
-        'DOGGO',
-        textAlign: TextAlign.center,
+    return new Hero(
+      tag: widget.dog,
+      child: new Container(
+        height: dogAvarterSize,
+        width: dogAvarterSize,
+        constraints: new BoxConstraints(),
+        decoration: new BoxDecoration(
+            shape: BoxShape.circle,
+            boxShadow: [
+              const BoxShadow(
+                  offset: const Offset(1.0, 2.0),
+                  blurRadius: 2.0,
+                  spreadRadius: -1.0,
+                  color: const Color(0x33000000)),
+              const BoxShadow(
+                  offset: const Offset(2.0, 1.0),
+                  blurRadius: 3.0,
+                  spreadRadius: 0.0,
+                  color: const Color(0x24000000)),
+              const BoxShadow(
+                  offset: const Offset(3.0, 1.0),
+                  blurRadius: 4.0,
+                  spreadRadius: 2.0,
+                  color: const Color(0x1f000000))
+            ],
+            image: new DecorationImage(
+                fit: BoxFit.cover,
+                image: new NetworkImage(widget.dog.imageUrl ?? ''))),
       ),
-    );
-
-    return AnimatedCrossFade(
-      firstChild: placeholder,
-      secondChild: dogAvatar,
-      crossFadeState: widget.dog.imageUrl == null
-          ? CrossFadeState.showFirst
-          : CrossFadeState.showSecond,
-      duration: Duration(microseconds: 1000),
     );
   }
 
   Widget get rating {
-    return Row(
+    return new Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Icon(
+        new Icon(
           Icons.star,
           size: 40.0,
         ),
-        Text(
+        new Text(
           '${widget.dog.rating}/10',
           style: Theme.of(context).textTheme.display2,
         )
@@ -138,10 +135,10 @@ class _DogDetailPageState extends State<DogDetailPage> {
   }
 
   Widget get dogProfile {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 32.0),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
+    return new Container(
+      padding: new EdgeInsets.symmetric(vertical: 32.0),
+      decoration: new BoxDecoration(
+        gradient: new LinearGradient(
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           stops: [.1, .5, .7, .9],
@@ -153,22 +150,22 @@ class _DogDetailPageState extends State<DogDetailPage> {
           ],
         ),
       ),
-      child: Column(
+      child: new Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           dogImage,
-          Text(
+          new Text(
             '${widget.dog.name}',
             style: TextStyle(fontSize: 32.0),
           ),
-          Text(
+          new Text(
             widget.dog.location,
             style: TextStyle(fontSize: 20.0),
           ),
-          Padding(
+          new Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
-            child: Text(widget.dog.description),
+            child: new Text(widget.dog.description),
           ),
           rating
         ],
@@ -178,13 +175,13 @@ class _DogDetailPageState extends State<DogDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
       backgroundColor: Colors.black87,
-      appBar: AppBar(
+      appBar: new AppBar(
         backgroundColor: Colors.black87,
-        title: Text('Meet ${widget.dog.name}'),
+        title: new Text('Meet ${widget.dog.name}'),
       ),
-      body: ListView(
+      body: new ListView(
         children: <Widget>[dogProfile, addYourRating],
       ),
     );

@@ -3,22 +3,22 @@ import 'package:flutter/material.dart';
 
 class AddDogFormPage extends StatefulWidget {
   @override
-  _AddDogFormPageState createState() => _AddDogFormPageState();
+  _AddDogFormPageState createState() => new _AddDogFormPageState();
 }
 
 class _AddDogFormPageState extends State<AddDogFormPage> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController locationController = TextEditingController();
-  TextEditingController descriptionController = TextEditingController();
+  TextEditingController nameController = new TextEditingController();
+  TextEditingController locationController = new TextEditingController();
+  TextEditingController descriptionController = new TextEditingController();
 
   void submitPup(BuildContext context) {
     if (nameController.text.isEmpty) {
-      Scaffold.of(context).showSnackBar(SnackBar(
+      Scaffold.of(context).showSnackBar(new SnackBar(
         backgroundColor: Colors.redAccent,
-        content: Text('Pups neeed names!'),
+        content: new Text('Pups neeed names!'),
       ));
     } else {
-      var newDog = Dog(nameController.text, locationController.text,
+      var newDog = new Dog(nameController.text, locationController.text,
           descriptionController.text);
       Navigator.of(context).pop(newDog);
     }
@@ -26,48 +26,48 @@ class _AddDogFormPageState extends State<AddDogFormPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Add a new dog'),
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Add a new dog'),
         backgroundColor: Colors.black87,
       ),
-      body: Container(
+      body: new Container(
         color: Colors.black54,
-        child: Padding(
+        child: new Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32.0),
-          child: Column(children: [
-            Padding(
+          child: new Column(children: [
+            new Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
-              child: TextField(
+              child: new TextField(
                 controller: nameController,
                 onChanged: (v) => nameController.text = v,
-                decoration: InputDecoration(labelText: 'Name the Pup'),
+                decoration: new InputDecoration(labelText: 'Name the Pup'),
               ),
             ),
-            Padding(
+            new Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
-              child: TextField(
+              child: new TextField(
                 controller: locationController,
                 onChanged: (v) => locationController.text = v,
-                decoration: InputDecoration(labelText: "Pup's location"),
+                decoration: new InputDecoration(labelText: "Pup's location"),
               ),
             ),
-            Padding(
+            new Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
-              child: TextField(
+              child: new TextField(
                 controller: descriptionController,
                 onChanged: (v) => descriptionController.text = v,
-                decoration: InputDecoration(labelText: 'All about the pup'),
+                decoration: new InputDecoration(labelText: 'All about the pup'),
               ),
             ),
-            Padding(
+            new Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Builder(
+              child: new Builder(
                 builder: (context) {
-                  return RaisedButton(
+                  return new RaisedButton(
                     onPressed: () => submitPup(context),
                     color: Colors.indigoAccent,
-                    child: Text('Submit Pup'),
+                    child: new Text('Submit Pup'),
                   );
                 },
               ),
