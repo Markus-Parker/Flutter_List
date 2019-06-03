@@ -85,31 +85,39 @@ class _DogDetailPageState extends State<DogDetailPage> {
   }
 
   Widget get dogImage {
-    return Container(
-      height: dogAvarterSize,
-      width: dogAvarterSize,
+    var dogAvatar = Container(
+      width: 100.0,
+      height: 100.0,
       decoration: BoxDecoration(
           shape: BoxShape.circle,
-          boxShadow: [
-            const BoxShadow(
-                offset: const Offset(1.0, 2.0),
-                blurRadius: 2.0,
-                spreadRadius: -1.0,
-                color: const Color(0x33000000)),
-            const BoxShadow(
-              offset: const Offset(2.0, 1.0),
-              blurRadius: 3.0,
-              spreadRadius: 0.0,
-              color: const Color(0x24000000),
-            ),
-            const BoxShadow(
-                offset: const Offset(3.0, 1.0),
-                blurRadius: 4.0,
-                spreadRadius: 2.0,
-                color: const Color(0x1f000000))
-          ],
           image: DecorationImage(
-              fit: BoxFit.cover, image: NetworkImage(widget.dog.imageUrl))),
+              fit: BoxFit.cover,
+              image: NetworkImage(widget.dog.imageUrl ?? ''))),
+    );
+
+    var placeholder = Container(
+      width: 100.0,
+      height: 100.0,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.black54, Colors.black, Colors.blueGrey[600]])),
+      alignment: Alignment.center,
+      child: Text(
+        'DOGGO',
+        textAlign: TextAlign.center,
+      ),
+    );
+
+    return AnimatedCrossFade(
+      firstChild: placeholder,
+      secondChild: dogAvatar,
+      crossFadeState: widget.dog.imageUrl == null
+          ? CrossFadeState.showFirst
+          : CrossFadeState.showSecond,
+      duration: Duration(microseconds: 1000),
     );
   }
 
