@@ -79,7 +79,7 @@ class _DogCardState extends State<DogCard> {
         width: 290,
         height: 115,
         child: new Card(
-          color: Colors.black87,
+          color: Colors.purpleAccent[700],
           child: new Padding(
             padding: const EdgeInsets.only(top: 8, bottom: 8, left: 64),
             child: new Column(

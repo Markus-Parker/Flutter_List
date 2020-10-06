@@ -11,10 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'We Rate Dogs',
+      title: 'Celebridades de internet',
       theme: ThemeData(brightness: Brightness.dark),
       home: MyHomePage(
-        title: 'We Rate Dogs',
+        title: 'Celebridades de internet',
       ),
     );
   }
@@ -65,21 +65,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: new Container(
           decoration: new BoxDecoration(
-              gradient: new LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  stops: [
-                .1,
-                .5,
-                .7,
-                .9
-              ],
-                  colors: [
-                Colors.indigo[800],
-                Colors.indigo[700],
-                Colors.indigo[600],
-                Colors.indigo[400]
-              ])),
+              image: DecorationImage(
+                  image: NetworkImage(
+                      "https://i.pinimg.com/originals/2b/69/c6/2b69c6f8b029c5de2a70d636f027865c.jpg"),
+                  fit: BoxFit.cover)),
           child: new Center(
             child: new DogList(initialDoggos),
           )),
