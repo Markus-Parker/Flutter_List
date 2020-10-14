@@ -65,11 +65,11 @@ class _DogDetailPageState extends State<DogDetailPage> {
         context: context,
         builder: (BuildContext context) {
           return new AlertDialog(
-            title: new Text('Error!'),
-            content: new Text("They're good dogs, Brant."),
+            title: new Text('Sinverguenza!'),
+            content: new Text("Todos estan por encima del 10."),
             actions: <Widget>[
               new FlatButton(
-                child: new Text('Try Again'),
+                child: new Text('Que no te vea otra vez'),
                 onPressed: () => Navigator.of(context).pop(),
               )
             ],

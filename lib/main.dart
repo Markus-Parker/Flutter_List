@@ -30,13 +30,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Dog> initialDoggos = []
-    ..add(Dog('Ruby', 'Portland, OR, USA',
-        'Ruby is a very good girl. Yes: Fetch, loungin\'. No: Dogs who get on furniture.'))
-    ..add(Dog('Rex', 'Seattle, WA, USA', 'Best in Show 1999'))
-    ..add(Dog('Rod Stewart', 'Prague, CZ',
-        'Star good boy on international snooze team.'))
-    ..add(Dog('Herbert', 'Dallas, TX, USA', 'A Very Good Boy'))
-    ..add(Dog('Buddy', 'North Pole, Earth', 'Self proclaimed human lover.'));
+    ..add(Dog('Oscar la Oveja', 'Rancho de Claudio',
+        'Una oveja con bufanda, nada mas que decir', '0'))
+    ..add(Dog('El Pepe', 'La casa de Pepe', 'Se enfada cuando dicen su nombre', '1'))
+    ..add(Dog('Sech', 'Brasil', 'Etee Sech', '2'))
+    ..add(Dog('RovisRon', 'Barcelona', 'Famoso streamer y creador de contenido que ya ha llegado a los 600 suscriptores', '3'))
+    ..add(Dog('Ericland', 'Calafell', 'Jugador experto de Lux, no se le ve mucho', '4'))
+    ..add(Dog('Nadie', 'Turquia', 'Ex Luchador de boxeo, le gusta el barça', '5'))
+    ..add(Dog('Yayo', 'Barcelona', 'Venir, venir a por mi, hijos de p***, venir a daros de ostias conmigo', '6'));
 
   Future _showNewDogForm() async {
     Dog newDog = await Navigator.of(context)
