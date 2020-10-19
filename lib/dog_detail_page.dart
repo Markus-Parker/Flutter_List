@@ -138,10 +138,10 @@ class _DogDetailPageState extends State<DogDetailPage> {
     return new Container(
       padding: new EdgeInsets.symmetric(vertical: 32.0),
       decoration: new BoxDecoration(
-        image: DecorationImage(
-                  image: NetworkImage(
-                      "https://i.pinimg.com/originals/2b/69/c6/2b69c6f8b029c5de2a70d636f027865c.jpg"),
-                  fit: BoxFit.cover)),
+          image: DecorationImage(
+              image: NetworkImage(
+                  "https://lh5.ggpht.com/zKNoHV-Vks8-RizC0O87qV6F_Y_8AiRJYeayJNZMTY1X6iBk_pGFaTKHJOeTK76jxGQ=w300"),
+              fit: BoxFit.cover)),
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -171,7 +171,7 @@ class _DogDetailPageState extends State<DogDetailPage> {
       backgroundColor: Colors.black87,
       appBar: new AppBar(
         backgroundColor: Colors.black87,
-        title: new Text('Meet ${widget.dog.name}'),
+        title: new Text('Conoce a ${widget.dog.name}'),
       ),
       body: new ListView(
         children: <Widget>[dogProfile, addYourRating],

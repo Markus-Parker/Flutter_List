@@ -16,7 +16,7 @@ class _AddDogFormPageState extends State<AddDogFormPage> {
     if (nameController.text.isEmpty) {
       Scaffold.of(context).showSnackBar(new SnackBar(
         backgroundColor: Colors.redAccent,
-        content: new Text('Pups neeed names!'),
+        content: new Text('Nombre del personaje'),
       ));
     } else {
       var newDog = new Dog(nameController.text, locationController.text,
@@ -29,7 +29,7 @@ class _AddDogFormPageState extends State<AddDogFormPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Add a new dog'),
+        title: new Text('Añadir nuevo personaje'),
         backgroundColor: Colors.black87,
       ),
       body: new Container(
@@ -42,7 +42,7 @@ class _AddDogFormPageState extends State<AddDogFormPage> {
               child: new TextField(
                 controller: nameController,
                 onChanged: (v) => nameController.text = v,
-                decoration: new InputDecoration(labelText: 'Name the Pup'),
+                decoration: new InputDecoration(labelText: 'Nombre'),
               ),
             ),
             new Padding(
@@ -50,7 +50,7 @@ class _AddDogFormPageState extends State<AddDogFormPage> {
               child: new TextField(
                 controller: locationController,
                 onChanged: (v) => locationController.text = v,
-                decoration: new InputDecoration(labelText: "Pup's location"),
+                decoration: new InputDecoration(labelText: "Donde vive?"),
               ),
             ),
             new Padding(
@@ -58,7 +58,7 @@ class _AddDogFormPageState extends State<AddDogFormPage> {
               child: new TextField(
                 controller: descriptionController,
                 onChanged: (v) => descriptionController.text = v,
-                decoration: new InputDecoration(labelText: 'All about the pup'),
+                decoration: new InputDecoration(labelText: 'Descripcion'),
               ),
             ),
             new Padding(
@@ -68,7 +68,7 @@ class _AddDogFormPageState extends State<AddDogFormPage> {
                   return new RaisedButton(
                     onPressed: () => submitPup(context),
                     color: Colors.indigoAccent,
-                    child: new Text('Submit Pup'),
+                    child: new Text('Guardar'),
                   );
                 },
               ),

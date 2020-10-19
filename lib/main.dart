@@ -11,10 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Celebridades de internet',
+      title: 'Celebridades de la Internet',
       theme: ThemeData(brightness: Brightness.dark),
       home: MyHomePage(
-        title: 'Celebridades de internet',
+        title: 'Celebridades de la Internet',
       ),
     );
   }
@@ -32,12 +32,26 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Dog> initialDoggos = []
     ..add(Dog('Oscar la Oveja', 'Rancho de Claudio',
         'Una oveja con bufanda, nada mas que decir', '0'))
-    ..add(Dog('El Pepe', 'La casa de Pepe', 'Se enfada cuando dicen su nombre', '1'))
+    ..add(Dog(
+        'El Pepe', 'La casa de Pepe', 'Se enfada cuando dicen su nombre', '1'))
     ..add(Dog('Sech', 'Brasil', 'Etee Sech', '2'))
-    ..add(Dog('RovisRon', 'Barcelona', 'Famoso streamer y creador de contenido que ya ha llegado a los 600 suscriptores', '3'))
-    ..add(Dog('Ericland', 'Calafell', 'Jugador experto de Lux, no se le ve mucho', '4'))
-    ..add(Dog('Nadie', 'Turquia', 'Ex Luchador de boxeo, le gusta el barça', '5'))
-    ..add(Dog('Yayo', 'Barcelona', 'Venir, venir a por mi, hijos de p***, venir a daros de ostias conmigo', '6'));
+    ..add(Dog(
+        'RovisRon',
+        'Barcelona',
+        'Famoso streamer y creador de contenido que ya ha llegado a los 600 suscriptores',
+        '3'))
+    ..add(Dog('Ericland', 'Calafell',
+        'Jugador experto de Lux, no se le ve mucho', '4'))
+    ..add(
+        Dog('Nadie', 'Turquia', 'Ex Luchador3 de boxeo, le gusta el barça', '5'))
+    ..add(Dog(
+        'Yayo',
+        'Barcelona',
+        'Venir, venir a por mi, hijos de p***, venir a daros de ostias conmigo',
+        '6'))
+    ..add(Dog('Franchesco Virgolini', 'Italia', 'La maquina mah veloh, de tote italie, FIAUUU', '7'))
+    ..add(Dog('Willyrex', 'Madrid', 'Cantante profesional, mejor cancion: Paradise', '8'))
+    ..add(Dog('Carlos Mamadisimo', 'Barcelona', 'Esta mamadisimo, pasa 3 horas al dia en el gym', '9'));
 
   Future _showNewDogForm() async {
     Dog newDog = await Navigator.of(context)
@@ -68,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
           decoration: new BoxDecoration(
               image: DecorationImage(
                   image: NetworkImage(
-                      "https://i.pinimg.com/originals/2b/69/c6/2b69c6f8b029c5de2a70d636f027865c.jpg"),
+                      "https://i.imgur.com/ICy8PRT_d.webp?maxwidth=728&fidelity=grand"),
                   fit: BoxFit.cover)),
           child: new Center(
             child: new DogList(initialDoggos),
