@@ -1,6 +1,6 @@
 # basic_flutter_app
 
-A new Flutter project.
+Version final de proyecto de flutter.
 
 ## Getting Started
 
